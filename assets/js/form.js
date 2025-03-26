@@ -1,64 +1,40 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contact-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.innerText;
-            
-            // Show loading state
-            submitBtn.innerText = 'Sending...';
-            submitBtn.disabled = true;
-            
-            fetch('assets/php/sendmail.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // Show success message
-                    showAlert('Message sent successfully!', 'success');
-                    contactForm.reset();
-                } else {
-                    // Show error message
-                    showAlert(data.message || 'An error occurred. Please try again.', 'error');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                showAlert('Failed to send message. Please try again later.', 'error');
-            })
-            .finally(() => {
-                submitBtn.innerText = originalBtnText;
-                submitBtn.disabled = false;
-            });
-        });
+document.getElementById('contact-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalText = submitBtn.textContent;
+
+  // Show loading state
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      showAlert('Message sent successfully!', 'success');
+      form.reset();
+    } else {
+      throw new Error('Failed to send message');
     }
-    
-    function showAlert(message, type) {
-        // Remove any existing alerts
-        const existingAlert = document.querySelector('.form-alert');
-        if (existingAlert) {
-            existingAlert.remove();
-        }
-        
-        const alert = document.createElement('div');
-        alert.className = `form-alert ${type}`;
-        alert.textContent = message;
-        
-        const form = document.getElementById('contact-form');
-        form.insertBefore(alert, form.firstChild);
-        
-        // Auto-remove after 5 seconds
-        setTimeout(() => {
-            alert.style.opacity = '0';
-            setTimeout(() => {
-                alert.remove();
-            }, 300);
-        }, 5000);
-    }
+  } catch (error) {
+    showAlert('Failed to send message. Please try again.', 'error');
+    console.error('Error:', error);
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+  }
 });
+
+function showAlert(message, type) {
+  const alert = document.createElement('div');
+  alert.className = `form-alert ${type}`;
+  alert.textContent = message;
+  document.getElementById('contact-form').prepend(alert);
+  
+  setTimeout(() => alert.remove(), 5000);
+}
