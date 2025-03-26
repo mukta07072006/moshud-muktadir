@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moshud Muktadir | Graphic Design Portfolio</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">MM</a>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#clients">Clients</a>
+                <a href="#contact">Contact</a>
+                <a href="portfolio.html">Works</a>
+            </div>
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">MOSHUD MUKTADIR</h1>
+                <p class="hero-subtitle">Visual Designer & Brand Strategist</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="count" data-target="5">0</span> Years
+                    </div>
+                    <div class="stat">
+                        <span class="count" data-target="112">0</span>+Projects
+                    </div>
+                    <div class="stat">
+                        <span class="count" data-target="34">0</span> +Clients
+                    </div>
+                </div>
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
+            </div>
+            <div class="hero-image">
+                <div class="image-container">
+                    <img src="assets/images/hero-image.jpg" alt="Designer's work">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Categories -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title">Featured Works</h2>
+            <div class="portfolio-categories">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="logos">Logos</button>
+                <button class="category-btn" data-category="social">Social Media</button>
+                <button class="category-btn" data-category="thumbnails">Thumbnails</button>
+                <button class="category-btn" data-category="branding">Branding</button>
+            </div>
+            <div class="portfolio-grid">
+                <!-- Items will be loaded via JavaScript -->
+            </div>
+            <a href="portfolio.html" class="btn btn-secondary">View All Works</a>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="clients-section">
+        <div class="container">
+            <h2 class="section-title">Trusted By</h2>
+            <div class="clients-grid">
+                <div class="client-logo">
+                    <img src="assets/images/client1.png" alt="Client 1">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/client2.png" alt="Client 2">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/client3.png" alt="Client 3">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/client4.png" alt="Client 4">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/client5.png" alt="Client 5">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title">Let's Create Something Amazing</h2>
+                <p class="section-subtitle">Have a project in mind? Get in touch!</p>
+                
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Your Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email Address</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                        <label for="message">Your Message</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+            <div class="contact-image">
+                <img src="assets/images/contact-image.svg" alt="Contact illustration">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Moshud Muktadir</h3>
+                    <p>Creating visually stunning designs that tell your brand's story.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Moshud Muktadir. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/form.js"></script>
+</body>
+</html>
